@@ -12,11 +12,24 @@
             line-height: 1.6;
             background-color: #1e1e1e; /* VSCode dark background */
             color: #d4d4d4; /* VSCode default text */
-            margin: 20px;
-            max-width: 800px;
+            /* Removed fixed margin and max-width from body */
+        }
+        /* Added a main container with responsive padding */
+        .container-wrapper {
             margin-left: auto;
             margin-right: auto;
+            max-width: 800px;
+            padding: 0 20px; /* Default horizontal padding for all screen sizes */
+            /* Tailwind equivalent: px-5 on smaller screens */
         }
+
+        /* Adjust padding for larger screens to maintain the 800px max-width */
+        @media (min-width: 768px) { /* Tailwind's 'md' breakpoint */
+            .container-wrapper {
+                padding: 0; /* Remove padding on larger screens once max-width is hit */
+            }
+        }
+
         /* Added margin-bottom to paragraphs for more spacing */
         p {
             margin-bottom: 1.25em; /* Adds space below each paragraph */
@@ -103,109 +116,110 @@
 </head>
 <body>
 
-    <header>
-        <h1>Slovenia: Your Guide to Public Transport</h1>
-        <p><em>By Peter Kenda</em></p>
-        <p>Thinking of visiting Slovenia? Great choice! And especially great to hear you’re planning on using public transport to get around. Despite what a lot of the locals say, it’s actually quite good and relatively inexpensive. Trains and buses will take you pretty much everywhere for a reasonable price.</p>
-        <p>It can however be quite difficult knowing where to find timetables and buy tickets. Solving this is the main goal of this website.</p>
-    </header>
+    <div class="container-wrapper">
+        <header>
+            <h1>Slovenia: Your Guide to Public Transport</h1>
+            <p><em>By Peter Kenda</em> <span style="margin-left: 1em;"><em>Last Update: June 2025</em></span></p>
 
-<div class="nav-links">
-    <a href="#overview">Brief overview</a>
-    <a href="#modernisation">A note on modernisation</a>
-    <a href="#timetables">Timetables</a>
-    <a href="#trains-timetables" class="sub-item indent">Trains</a>
-    <a href="#intercity-buses-timetables" class="sub-item indent">Intercity buses</a>
-    <a href="#ljubljana-buses-timetables" class="sub-item indent">Ljubljana’s municipal buses</a>
-    <a href="#pay">How to pay?</a>
-    <a href="#key-overarching-points" class="sub-item indent">Key overarching points</a>
-    <a href="#trains-pay" class="sub-item indent">Trains</a>
-    <a href="#intercity-buses-pay" class="sub-item indent">Intercity buses</a>
-    <a href="#ljubljana-buses-pay" class="sub-item indent">Ljubljana’s municipal buses</a>
-</div>
+            <p>Thinking of visiting Slovenia? Great choice! And especially great to hear you’re planning on using public transport to get around. Despite what some of the locals will tell you, it’s actually quite good, with trains and buses taking you pretty much everywhere for a reasonable price.</p>
+            <p>It can however be quite difficult knowing where to find timetables and buy tickets, so solving this is the main goal of this website.</p>
+        </header>
 
-    <section id="overview">
-        <h2>Brief overview</h2>
-        <p>Public transport in Slovenia consists of three modes:</p>
-        <ul>
-            <li>Trains</li>
-            <li>Intercity buses</li>
-            <li>Municipal buses</li>
-        </ul>
-        <p>Trains are more comfortable, but go to fewer destinations than buses. Intercity buses are also frequently faster then trains and are likely to be your most frequent mode of transportation. Tickets for trains and intercity buses cost almost exactly the same. Choose the more convenient option where both are available.</p>
-        <p>Since all cities are small and all points interesting to tourists easily accessible by foot, you are unlikely to be using the municipal bus system heavily. I have however provided a guide on how to use Ljubljana’s municipal buses.</p>
-        <div class="image-placeholder">
-            <img src="./photos/Gemini_train.jpeg" alt="Gemini Train">
-            <p class="image-caption">Gemini Flash 2.5's impression of public transport in Slovenia. Other than the real railway being few hundred meters further from the lake, the wrong paint job on the train and the wrong overhead line electrification setup, it's surprisingly good!</p>
+        <div class="nav-links">
+            <a href="#overview">Brief overview</a>
+            <a href="#modernisation">A note on modernisation</a>
+            <a href="#timetables">Timetables</a>
+            <a href="#trains-timetables" class="sub-item indent">Trains</a>
+            <a href="#intercity-buses-timetables" class="sub-item indent">Intercity buses</a>
+            <a href="#ljubljana-buses-timetables" class="sub-item indent">Ljubljana’s municipal buses</a>
+            <a href="#pay">How to pay?</a>
+            <a href="#key-overarching-points" class="sub-item indent">Key overarching points</a>
+            <a href="#trains-pay" class="sub-item indent">Trains</a>
+            <a href="#intercity-buses-pay" class="sub-item indent">Intercity buses</a>
+            <a href="#ljubljana-buses-pay" class="sub-item indent">Ljubljana’s municipal buses</a>
         </div>
-    </section>
 
-    
+        <section id="overview">
+            <h2>Brief overview</h2>
+            <p>Public transport in Slovenia consists of three modes:</p>
+            <ul>
+                <li>Trains</li>
+                <li>Intercity buses</li>
+                <li>Municipal buses</li>
+            </ul>
+            <p>Trains are more comfortable, but go to fewer destinations than buses. Intercity buses are also frequently faster then trains and are likely to be your most frequent mode of transportation. Tickets for trains and intercity buses cost almost exactly the same. Choose the more convenient option where both are available.</p>
+            <p>Since all cities are small and all points interesting to tourists easily accessible by foot, you are unlikely to be using the municipal bus system heavily. I have however provided a guide on how to use Ljubljana’s municipal buses.</p>
+            <div class="image-placeholder">
+                <img src="./photos/Gemini_train.jpeg" alt="Gemini Train">
+                <p class="image-caption">Gemini Flash 2.5's impression of public transport in Slovenia. Other than the real railway being few hundred meters further from the lake, the wrong paint job on the train and the wrong overhead line electrification setup, it's surprisingly good!</p>
+            </div>
+        </section>
 
-    <section id="modernisation">
-        <h2>A note on modernisation</h2>
-        <p>The entire railway and intercity bus system are currently in the middle of a massive modernisation, with almost every railway line undergoing some sort of upgrade within this and the next decade and the bus timetables being substantially enhanced. This will ultimately lead to a much better system, but leads to substantial disruption.</p>
-        <p>Another area of significant upheaval are transport tickets, which are being simplified, but the entire system is currently stuck in an intermediate stage leading to immense complexity. Because of this, the focus of this guide is to guide you on how to buy the best, but not necessarily the absolute cheapest tickets. Prices are quite low in any case and this will probably only cost you an extra euro or two per day in exchange for a massive simplification of both this guide and your holiday.</p>
+        <section id="modernisation">
+            <h2>A note on modernisation</h2>
+            <p>The entire railway and intercity bus system are currently in the middle of a massive modernisation, with almost every railway line undergoing some sort of upgrade within this and the next decade and the bus timetables being substantially enhanced. This will ultimately lead to a much better system, but leads to substantial disruption.</p>
+            <p>Another area of significant upheaval are transport tickets, which are being simplified, but the entire system is currently stuck in an intermediate stage leading to immense complexity. Because of this, the focus of this guide is to guide you on how to buy the best, but not necessarily the absolute cheapest tickets. Prices are quite low in any case and this will probably only cost you an extra euro or two per day in exchange for a massive simplification of both this guide and your holiday.</p>
 
-        <p>If you however really want to find the optimal and cheapest combination of tickets, go for it! Here is some advice:</p>
-        <ul>
-            <li>learn Slovene,</li>
-            <li>buy a printer and carrying it with you at all times,</li>
-            <li>regularily compare prices across half a dozen glitchy websites,</li>
-            <li>understand how the distance calculation algorithm leads to minor price differences for the same train/bus at different modes of purchase, and</li>
-            <li>obtain an anonymous IJPP card before entering the country despite them only being sold within Slovenia.</li>
-        </ul>
-        <p>If that doesn't sound like an optimal use of your vacation days, please do continue reading.</p>
-    </section>
+            <p>If you however really want to find the optimal and cheapest combination of tickets, go for it! Here is some advice:</p>
+            <ul>
+                <li>learn Slovene,</li>
+                <li>buy a printer and carrying it with you at all times,</li>
+                <li>regularily compare prices across half a dozen glitchy websites,</li>
+                <li>understand how the distance calculation algorithm leads to minor price differences for the same train/bus at different modes of purchase, and</li>
+                <li>obtain an anonymous IJPP card before entering the country despite them only being sold within Slovenia.</li>
+            </ul>
+            <p>If that doesn't sound like an optimal use of your vacation days, please do continue reading.</p>
+        </section>
 
-    <section id="timetables">
-        <h2>Timetables</h2>
-        <p>Google Maps has up-to-date timetables for all public transport so I would highly recommend using it to plan your trip, subject to the quirks detailed below.</p>
+        <section id="timetables">
+            <h2>Timetables</h2>
+            <p>Google Maps has up-to-date timetables for all public transport so I would highly recommend using it to plan your trip, subject to the quirks detailed below.</p>
 
-        <h3 id="trains-timetables">Trains</h3>
-        <p>Use Google Maps but cross-check with <a href="https://potniski.sz.si/en/timetable-finder/" target="_blank">potniski.sz.si/en/timetable-finder/</a> for delays and cancellations. A full list of all delays in the country is also available on <a href="https://potniski.sz.si/en/help-and-travel-updates/#delays" target="_blank">potniski.sz.si/en/help-and-travel-updates/#delays</a>. You may find this format easier to use than the journey planner. Note: The main stations in Ljubljana, Maribor, and Celje are just called Ljubljana, Maribor, and Celje. Stations like Ljubljana Črnuče are commuter and secondary stations that you are very unlikely to be using.</p>
+            <h3 id="trains-timetables">Trains</h3>
+            <p>Use Google Maps but cross-check with <a href="https://potniski.sz.si/en/timetable-finder/" target="_blank">potniski.sz.si/en/timetable-finder/</a> for delays and cancellations. A full list of all delays in the country is also available on <a href="https://potniski.sz.si/en/help-and-travel-updates/#delays" target="_blank">potniski.sz.si/en/help-and-travel-updates/#delays</a>. You may find this format easier to use than the journey planner. Note: The main stations in Ljubljana, Maribor, and Celje are just called Ljubljana, Maribor, and Celje. Stations like Ljubljana Črnuče are commuter and secondary stations that you are very unlikely to be using.</p>
 
-        <h3 id="intercity-buses-timetables">Intercity buses</h3>
-        <p>Use Google Maps. It is unfortunately almost impossible to get information about delays without calling the companies operating buses.</p>
-        <p>Note that Google Maps will sometimes show buses operated by FlixBus. These are international and private buses and not part of the public transport system and as such are not covered in this guide.</p>
+            <h3 id="intercity-buses-timetables">Intercity buses</h3>
+            <p>Use Google Maps. It is unfortunately almost impossible to get information about delays without calling the companies operating buses.</p>
+            <p>Note that Google Maps will sometimes show buses operated by FlixBus. These are international and private buses and not part of the public transport system and as such are not covered in this guide.</p>
 
-        <h3 id="ljubljana-buses-timetables">Ljubljana’s municipal buses</h3>
-        <p>Use Google Maps. It even has live arrival times! Municipal buses will appear as a 2-digit number with an optional letter. E.g. 06 or 21D.</p>
-    </section>
+            <h3 id="ljubljana-buses-timetables">Ljubljana’s municipal buses</h3>
+            <p>Use Google Maps. It even has live arrival times! Municipal buses will appear as a 2-digit number with an optional letter. E.g. 06 or 21D.</p>
+        </section>
 
-    <section id="pay">
-        <h2>How to pay?</h2>
-        <h3 id="key-overarching-points">Key overarching points:</h3>
-        <ul>
-            <li>There is no advantage in buying in advance or online. Fares are static and cannot sell out. Therefore, buy tickets in-person.</li>
-            <li>There are no return tickets. You should always just buy single tickets or a small number of unlimited ride products that I detail below.</li>
-            <li>Weekend journeys on trains and intercity buses are 75% cheaper.</li>
-            <li>Always carry some cash since this is often the only way to pay.</li>
-        </ul>
-        <p>While the vast majority of the country has embraced contactless payments, in public transport, cash is still king. Except for Ljubljana’s municipal buses, cash is usually the only way to pay for fares. It can be very difficult to predict exactly what you will be asked to pay since the price will sometimes vary slightly based on where you buy tickets, but everyone will return change, so no need to carry an exact amount. Just note that many drivers may refuse high-denomination banknotes (generally €50 or above, but sometimes €20 as well), so always carry small notes and coins.</p>
-        <p>The price cap for single tickets for trains and buses is 13€. Your trip is almost certainly going to be significantly cheaper, but you can use that amount as a rough guide of how much cash you should carry.</p>
-        <p>Please note that while tickets generally cannot sell out, buses fill up when going to very popular destinations like Bled in summer, so in those cases I would advise showing up to the station 10 minutes early.</p>
+        <section id="pay">
+            <h2>How to pay?</h2>
+            <h3 id="key-overarching-points">Key overarching points:</h3>
+            <ul>
+                <li>There is no advantage in buying in advance or online. Fares are static and cannot sell out. Therefore, buy tickets in-person.</li>
+                <li>There are no return tickets. You should always just buy single tickets or a small number of unlimited ride products that I detail below.</li>
+                <li>Weekend journeys on trains and intercity buses are 75% cheaper.</li>
+                <li>Always carry some cash since this is often the only way to pay.</li>
+            </ul>
+            <p>While the vast majority of the country has embraced contactless payments, in public transport, cash is still king. Except for Ljubljana’s municipal buses, cash is usually the only way to pay for fares. It can be very difficult to predict exactly what you will be asked to pay since the price will sometimes vary slightly based on where you buy tickets, but everyone will return change, so no need to carry an exact amount. Just note that many drivers may refuse high-denomination banknotes (generally €50 or above, but sometimes €20 as well), so always carry small notes and coins.</p>
+            <p>The price cap for single tickets for trains and buses is 13€. Your trip is almost certainly going to be significantly cheaper, but you can use that amount as a rough guide of how much cash you should carry.</p>
+            <p>Please note that while tickets generally cannot sell out, buses fill up when going to very popular destinations like Bled in summer, so in those cases I would advise showing up to the station 10 minutes early.</p>
 
-        <h3 id="trains-pay">Trains</h3>
-        <p>If a ticket office is open at your departure station, you must buy your ticket there. Ticket offices in large cities are open almost always, medium-sized stations have them open only for a few hours every day while small stations do not have ticket offices. You can check the opening times of all ticket offices here: <a href="https://potniski.sz.si/en/tickets/purchase-tickets-sz-and-ijpp/ticket-sales-outlets/sales-outlets-opening-hours/" target="_blank">https://potniski.sz.si/en/tickets/purchase-tickets-sz-and-ijpp/ticket-sales-outlets/sales-outlets-opening-hours/</a>, but they will usually be located in a very obvious location, with the exception of the one at Ljubljana Central Station, which is located in the large yellow building a 2-3 minutes’ walk away from some platforms.</p>
-        <p>If the ticket office is closed, board the train and wait for the conductor to come to you. You can then buy the ticket from them with cash. (they return change)</p>
-        <p>If you try and buy a ticket from the conductor from a station where the ticket office was open (because e.g. you couldn’t find it), you will be charged a 5€ penalty supplement (This is not a fine so don’t worry about it too much if you make a mistake)</p>
-        <p>Some trains with fewer stops (those with ICS, IC, MV, EC, EN in the timetable) require a 1.5-3.0€ supplement. You will sometimes be sold it by the ticket office, but there is no penalty for buying it from the conductor. It can be difficult to tell which train requires a supplement, so I recommend just deferring to the conductor. Counterintuitively, these trains—especially those that cross an international border—are usually much older, less comfortable, and more delayed, so you may want to avoid them.</p>
-        <p>I recommend avoiding ticket machines. They are very unintuitive and will often not give you the best price. Even if one exists at your departure station, you can still buy your ticket from the conductor without an extra fare if the ticket office was closed.</p>
+            <h3 id="trains-pay">Trains</h3>
+            <p>If a ticket office is open at your departure station, you must buy your ticket there. Ticket offices in large cities are open almost always, medium-sized stations have them open only for a few hours every day while small stations do not have ticket offices. You can check the opening times of all ticket offices here: <a href="https://potniski.sz.si/en/tickets/purchase-tickets-sz-and-ijpp/ticket-sales-outlets/sales-outlets-opening-hours/" target="_blank">https://potniski.sz.si/en/tickets/purchase-tickets-sz-and-ijpp/ticket-sales-outlets/sales-outlets-opening-hours/</a>, but they will usually be located in a very obvious location, with the exception of the one at Ljubljana Central Station, which is located in the large yellow building a 2-3 minutes’ walk away from some platforms.</p>
+            <p>If the ticket office is closed, board the train and wait for the conductor to come to you. You can then buy the ticket from them with cash. (they return change)</p>
+            <p>If you try and buy a ticket from the conductor from a station where the ticket office was open (because e.g. you couldn’t find it), you will be charged a 5€ penalty supplement (This is not a fine so don’t worry about it too much if you make a mistake)</p>
+            <p>Some trains with fewer stops (those with ICS, IC, MV, EC, EN in the timetable) require a 1.5-3.0€ supplement. You will sometimes be sold it by the ticket office, but there is no penalty for buying it from the conductor. It can be difficult to tell which train requires a supplement, so I recommend just deferring to the conductor. Counterintuitively, these trains—especially those that cross an international border—are usually much older, less comfortable, and more delayed, so you may want to avoid them.</p>
+            <p>I recommend avoiding ticket machines. They are very unintuitive and will often not give you the best price. Even if one exists at your departure station, you can still buy your ticket from the conductor without an extra fare if the ticket office was closed.</p>
 
-        <h3 id="intercity-buses-pay">Intercity buses</h3>
-        <p>At bus stations with open ticket offices (likely the only relevant one for tourists is Ljubljana), you must buy a ticket before boarding a bus. You can only pay with cash. At Ljubljana, they will charge you an extra 0.60€ booking fee. Avoiding it involves a lot of hassle, so I advise you to just pay it.</p>
-        <p>Except at Ljubljana central station and a handful of other major stations (sorry, no definitive list exists!) you can and should buy the ticket directly from the bus driver. Just tell them your destination station and pay for the fare with cash. (they return change)</p>
+            <h3 id="intercity-buses-pay">Intercity buses</h3>
+            <p>At bus stations with open ticket offices (likely the only relevant one for tourists is Ljubljana), you must buy a ticket before boarding a bus. You can only pay with cash. At Ljubljana, they will charge you an extra 0.60€ booking fee. Avoiding it involves a lot of hassle, so I advise you to just pay it.</p>
+            <p>Except at Ljubljana central station and a handful of other major stations (sorry, no definitive list exists!) you can and should buy the ticket directly from the bus driver. Just tell them your destination station and pay for the fare with cash. (they return change)</p>
 
-        <h3 id="ljubljana-buses-pay">Ljubljana’s municipal buses</h3>
-        <p>A single ride in zone 1* costs 1.30€. You cannot pay it with cash. The simplest way to pay it is with a contactless Visa or Mastercard payment card. Just tap it on the reader near the driver or behind the 2nd door from the front until it beeps. You cannot tap twice to pay for two people. Each person needs their own card.</p>
-        <p>If you find yourself frequently changing buses within a 90 minutes of the first tap, you may want to download the Urbana app. Load some money with a debit/credit card (I recommend multiples of 1.3€) and click the ‘use Urbana’ button just before getting on the bus. The app will use Bluetooth to validate your fare. Any transfers within 90 minutes of the first validation will be free, just press ‘use Urbana’ again to validate when boarding. You can use the app to pay for multiple people by clicking the ‘+’ next to ‘Use Urbana’ and selecting the number of people.</p>
-        <p class="indent">*Zone 1 is massive and includes the entirety of Ljubljana and several neighbouring small towns. Other zones are very far and usually only relevant for long-distance commuters. Unless you have an extremely weird itinerary, they are irrelevant to you.</p>
-    </section>
+            <h3 id="ljubljana-buses-pay">Ljubljana’s municipal buses</h3>
+            <p>A single ride in zone 1* costs 1.30€. You cannot pay it with cash. The simplest way to pay it is with a contactless Visa or Mastercard payment card. Just tap it on the reader near the driver or behind the 2nd door from the front until it beeps. You cannot tap twice to pay for two people. Each person needs their own card.</p>
+            <p>If you find yourself frequently changing buses within a 90 minutes of the first tap, you may want to download the Urbana app. Load some money with a debit/credit card (I recommend multiples of 1.3€) and click the ‘use Urbana’ button just before getting on the bus. The app will use Bluetooth to validate your fare. Any transfers within 90 minutes of the first validation will be free, just press ‘use Urbana’ again to validate when boarding. You can use the app to pay for multiple people by clicking the ‘+’ next to ‘Use Urbana’ and selecting the number of people.</p>
+            <p class="indent">*Zone 1 is massive and includes the entirety of Ljubljana and several neighbouring small towns. Other zones are very far and usually only relevant for long-distance commuters. Unless you have an extremely weird itinerary, they are irrelevant to you.</p>
+        </section>
 
-    <footer>
-        <p>(Last updated: June 2025. While every effort has been made to ensure accuracy, public transport information can change rapidly. We cannot accept responsibility for any outdated details.)</p>
-    </footer>
+        <footer>
+            <p>(Last updated: June 2025. While every effort has been made to ensure accuracy, public transport information can change rapidly. I cannot accept responsibility for any outdated details.)</p>
+        </footer>
+    </div>
 
 </body>
 </html>
